@@ -1,4 +1,4 @@
-\documentclass[a3paper,12pt]{report}
+\documentclass[a4paper,12pt]{report}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
 \begin{document}
@@ -7,41 +7,32 @@
 		\textsc{Equations Used}\\\normalsize
 	\end{center}
 	\vspace{-3ex}
-	\underline{\hspace{9.77in}}
-	\begin{eqnarray}
-		EI\frac{d^2\theta^*}{ds^{*2}} &=& \frac{1}{2}\rho u^2C_D\int_{s^*}^{l} \cos^2\theta\cos(\theta - \theta^*) ds + \frac{1}	{2}\rho u^2C_L\int_{s^*}^{l} \cos^2\theta\sin(\theta - \theta^*) ds\\
-		\frac{d^2\theta^*}{ds^{*2}} &=& \frac{\rho u^2l}{2EI}\left[C_D\int_{s^*}^{1} \cos^2\theta\cos(\theta - \theta^*) ds + C_L\int_{s^*}^{1} \cos^2\theta\sin(\theta - \theta^*) ds	\right]\\
-		\frac{d^2\theta^*}{ds^{*2}} &=& \frac{\rho u^2l}{2EI}\left[\int_{s^*}^{1} \cos^2\theta\left(C_D\cos(\theta - \theta^*) + C_L\sin(\theta - \theta^*)\right) ds	\right]\\
-		\frac{d^2\theta^*}{ds^{*2}} &=& \frac{\rho u^2l}{2EI}\sqrt{C_D^2+C_L^2}\left[\int_{s^*}^{1} \cos^2\theta\left(\frac{C_D}{\sqrt{C_D^2+C_L^2}}\cos(\theta - \theta^*) + \frac{C_L}{\sqrt{C_D^2+C_L^2}}\sin(\theta - \theta^*)\right) ds	\right]\\
-		\frac{d^2\theta^*}{ds^{*2}} &=& \frac{\rho u^2l}{2EI}\sqrt{C_D^2+C_L^2}\left[\int_{s^*}^{1} \cos^2\theta\sin\left(\theta - \theta^*+\sin^{-1}\left(\frac{C_D}{\sqrt{C_D^2+C_L^2} }\right)\right) ds\right]\\
-		\frac{d^2\theta^*}{ds^{*2}} &=& a\left[\int_{s^*}^{1} \cos^2\theta\sin\left(\theta - \theta^*+\sin^{-1}\left(\frac{C_D}{\sqrt{C_D^2+C_L^2} }\right)\right) ds\right]\\
-		\frac{d^3\theta^*}{ds^{*3}} &=& a\left[-\cos^2\theta^*\frac{C_D}{\sqrt{C_D^2+C_L^2} }-\int_{s^*}^{1} \cos^2\theta\cos\left(\theta - \theta^*+\sin^{-1}\left(\frac{C_D}{\sqrt{C_D^2+C_L^2} }\right)\right) ds\right]\\
-		\frac{d^4\theta^*}{ds^{*4}} &=& a\left[2\cos\theta^*\sin\theta^*\frac{C_D}{\sqrt{C_D^2+C_L^2}}+ \cos^2\theta^*\frac{C_L}{\sqrt{C_D^2+C_L^2}}-\int_{s^*}^{1} \cos^2\theta\sin\left(\theta - \theta^*+\sin^{-1}\left(\frac{C_D}{\sqrt{C_D^2+C_L^2} }\right)\right) ds\right]\\
-		\frac{d^4\theta^*}{ds^{*4}} &=& a\left[\sin2\theta^*\frac{C_D}{\sqrt{C_D^2+C_L^2}}+ \cos^2\theta^*\frac{C_L}{\sqrt{C_D^2+C_L^2}}\right]-\frac{d^2\theta^*}{ds^{*2}}\\
-		\frac{d^4\theta^*}{ds^{*4}}+\frac{d^2\theta^*}{ds^{*2}} &=& \frac{a}{\sqrt{C_D^2+C_L^2}}\left[C_D\sin2\theta^*+ C_L\cos^2\theta^*\right]\\
-		\frac{d^4\theta^*}{ds^{*4}}+\frac{d^2\theta^*}{ds^{*2}} &=& \frac{a}{\sqrt{C_D^2+C_L^2}}\left[\frac{C_L}{2}+ C_D\sin2\theta^*+ \frac{C_L}{2}\cos2\theta^*\right]\\
-		\frac{d^4\theta^*}{ds^{*4}}+\frac{d^2\theta^*}{ds^{*2}} &=& \frac{a}{\sqrt{C_D^2+C_L^2}}\left[\frac{C_L}{2}+ \sqrt{C_D^2 + \frac{C_L^2}{4}}\left(\frac{C_D}{\sqrt{C_D^2 + \frac{C_L^2}{4}}}\sin2\theta^*+ \frac{C_L}{2\sqrt{C_D^2 + \frac{C_L^2}{4}}}\cos2\theta^*\right)\right]\\
-		\frac{d^4\theta^*}{ds^{*4}}+\frac{d^2\theta^*}{ds^{*2}} &=& a\left(\lambda+ b\sin(2\theta^* + \mu)\right)
-	\end{eqnarray}
+	\underline{\hspace{6.27in}}
+	\begin{align}
+		-EI\frac{d^2\theta^*}{ds^{*2}} &= \frac{1}{2}\rho u^2C_D\int_{s^*}^{l} \cos^2(\theta)\cos(\theta - \theta^*) ds + \frac{1}	{2}\rho u^2C_L\int_{s^*}^{l} \cos^2(\theta)\sin(\theta - \theta^*) ds\\
+		-\frac{d^2\theta^*}{ds^{*2}} &= \frac{\rho u^2l^3}{2EI}\left[C_D\int_{s^*}^{1} \cos^2(\theta)\cos(\theta - \theta^*) ds + C_L\int_{s^*}^{1} \cos^2(\theta)\sin(\theta - \theta^*) ds	\right]\\
+		-\frac{d^2\theta^*}{ds^{*2}} &= \frac{\rho u^2l^3}{2EI}\left[\int_{s^*}^{1} \cos^2(\theta)\left(C_D\cos(\theta - \theta^*) + C_L\sin(\theta - \theta^*)\right) ds	\right]\\
+		\begin{split}
+		-\frac{d^2\theta^*}{ds^{*2}} &= \frac{\rho u^2l^3}{2EI}\sqrt{C_D^2+C_L^2}\Biggr[\int_{s^*}^{1} \cos^2(\theta)\Biggr(\frac{C_D}{\sqrt{C_D^2+C_L^2}}\cos(\theta - \theta^*) \\
+		&\quad \phantom{{} = KaushikGiridharKulkarni} + \frac{C_L}{\sqrt{C_D^2+C_L^2}}\sin(\theta - \theta^*)\Biggl) ds	\Biggr]
+		\end{split}\\
+		-\frac{d^2\theta^*}{ds^{*2}} &= \frac{\rho u^2l^3}{2EI}\sqrt{C_D^2+C_L^2}\left[\int_{s^*}^{1} \cos^2(\theta)\sin\left(\theta - \theta^*+\sin^{-1}\left(\frac{C_D}{\sqrt{C_D^2+C_L^2} }\right)\right) ds\right]\\
+		-\frac{d^2\theta^*}{ds^{*2}} &= \text{Ca}\sqrt{C_D^2+C_L^2}\left[\int_{s^*}^{1} \cos^2(\theta)\sin\left(\theta - \theta^*+\phi\right) ds\right]
+	\end{align}
 where,\\
 \raggedright
-\begin{eqnarray*}
-C_D &=& 1.95\\
-C_L &=& 0.178\\
-\lambda &=& \frac{C_L}{2\sqrt{C_D^2+C_L^2}}\\
- &=& 0.00454521\\
-b &=& \frac{\sqrt{C_D^2 + \frac{C_L^2}{4}}}{\sqrt{C_D^2+C_L^2}}\\
- &=& 0.99689635\\
-\mu &=& \sin^{-1}\left(\frac{C_L}{2\sqrt{C_D^2 + \frac{C_L^2}{4}}}\right)\\
- &=& 0.04561\\
-\end{eqnarray*}
+\begin{align*}
+\text{Ca} &= \text{Cauchy Number}\\
+   &= \frac{\rho u^2l^3}{2EI}\\
+C_D &= 1.95\\
+C_L &= 0.178\\
+\phi &= \sin^{-1}\left(\frac{C_D}{\sqrt{C_D^2 + C_L^2}}\right)
+\end{align*}
 And the boundary conditions being,
-\begin{eqnarray}
-\theta^*(0)&=&0\\ 
-\frac{d\theta^*}{ds^*}(1) &=& 0\\
-\frac{d^2\theta^*}{ds^{*2}}(1) &=& 0\\
-\frac{d^3\theta^*}{ds^{*3}}(1) &=& -a \frac{C_D}{\sqrt{C_D^2+C_L^2}}\cos^2\theta^*(1) \\
-&=& -0.99585965a\cos^2\theta^*(1)
-\end{eqnarray}
+\begin{align*}
+\theta^*(0)&=0\\ 
+\frac{d\theta^*}{ds^*}\Big|_{s^*=1} &= 0\\
+\frac{d^2\theta^*}{ds^{*2}}\Big|_{s^*=1} &= 0\\
+\end{align*}
 
 \end{document}
