@@ -1,6 +1,7 @@
 \documentclass[a4paper,12pt]{report}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
 \begin{document}
 	\begin{center}
 		\Large
@@ -9,30 +10,97 @@
 	\vspace{-3ex}
 	\underline{\hspace{6.27in}}
 	\begin{align}
-		-EI\frac{d^2\theta^*}{ds^{*2}} &= \frac{1}{2}\rho u^2C_D\int_{s^*}^{l} \cos^2(\theta)\cos(\theta - \theta^*) ds + \frac{1}	{2}\rho u^2C_L\int_{s^*}^{l} \cos^2(\theta)\sin(\theta - \theta^*) ds\\
-		-\frac{d^2\theta^*}{ds^{*2}} &= \frac{\rho u^2l^3}{2EI}\left[C_D\int_{s^*}^{1} \cos^2(\theta)\cos(\theta - \theta^*) ds + C_L\int_{s^*}^{1} \cos^2(\theta)\sin(\theta - \theta^*) ds	\right]\\
-		-\frac{d^2\theta^*}{ds^{*2}} &= \frac{\rho u^2l^3}{2EI}\left[\int_{s^*}^{1} \cos^2(\theta)\left(C_D\cos(\theta - \theta^*) + C_L\sin(\theta - \theta^*)\right) ds	\right]\\
+		-EI\frac{\mathrm{d}^2\theta^*}{\mathrm{d}s^{*2}} &= \frac{1}{2}\rho u^2C_D\int_{s^*}^{l} \cos^2(\theta)\cos(\theta - \theta^*) ds + \frac{1}	{2}\rho u^2C_L\int_{s^*}^{l} \cos^2(\theta)\sin(\theta - \theta^*) ds\\
+		-\frac{\mathrm{d}^2\theta^*}{\mathrm{d}s^{*2}} &= \frac{\rho u^2l^3}{2EI}\left[C_D\int_{s^*}^{1} \cos^2(\theta)\cos(\theta - \theta^*) ds + C_L\int_{s^*}^{1} \cos^2(\theta)\sin(\theta - \theta^*) ds	\right]\\
+		-\frac{\mathrm{d}^2\theta^*}{\mathrm{d}s^{*2}} &= \frac{\rho u^2l^3}{2EI}\left[\int_{s^*}^{1} \cos^2(\theta)\left(C_D\cos(\theta - \theta^*) + C_L\sin(\theta - \theta^*)\right) ds	\right]\\
 		\begin{split}
-		-\frac{d^2\theta^*}{ds^{*2}} &= \frac{\rho u^2l^3}{2EI}\sqrt{C_D^2+C_L^2}\Biggr[\int_{s^*}^{1} \cos^2(\theta)\Biggr(\frac{C_D}{\sqrt{C_D^2+C_L^2}}\cos(\theta - \theta^*) \\
+		-\frac{\mathrm{d}^2\theta^*}{\mathrm{d}s^{*2}} &= \frac{\rho u^2l^3}{2EI}\sqrt{C_D^2+C_L^2}\Biggr[\int_{s^*}^{1} \cos^2(\theta)\Biggr(\frac{C_D}{\sqrt{C_D^2+C_L^2}}\cos(\theta - \theta^*) \\
 		&\quad \phantom{{} = KaushikGiridharKulkarni} + \frac{C_L}{\sqrt{C_D^2+C_L^2}}\sin(\theta - \theta^*)\Biggl) ds	\Biggr]
 		\end{split}\\
-		-\frac{d^2\theta^*}{ds^{*2}} &= \frac{\rho u^2l^3}{2EI}\sqrt{C_D^2+C_L^2}\left[\int_{s^*}^{1} \cos^2(\theta)\sin\left(\theta - \theta^*+\sin^{-1}\left(\frac{C_D}{\sqrt{C_D^2+C_L^2} }\right)\right) ds\right]\\
-		-\frac{d^2\theta^*}{ds^{*2}} &= \text{Ca}\sqrt{C_D^2+C_L^2}\left[\int_{s^*}^{1} \cos^2(\theta)\sin\left(\theta - \theta^*+\phi\right) ds\right]
+		-\frac{\mathrm{d}^2\theta^*}{\mathrm{d}s^{*2}} &= \frac{\rho u^2l^3}{2EI}\sqrt{C_D^2+C_L^2}\left[\int_{s^*}^{1} \cos^2(\theta)\sin\left(\theta - \theta^*+\sin^{-1}\left(\frac{C_D}{\sqrt{C_D^2+C_L^2} }\right)\right) ds\right]\\
+		-\frac{\mathrm{d}^2\theta^*}{\mathrm{d}s^{*2}} &= \text{Ca}\frac{\sqrt{C_D^2+C_L^2}}{C_D}\left[\int_{s^*}^{1} \cos^2(\theta)\sin\left(\theta - \theta^*+\phi\right) ds\right]\label{deqn}
 	\end{align}
 where,\\
 \raggedright
 \begin{align*}
 \text{Ca} &= \text{Cauchy Number}\\
-   &= \frac{\rho u^2l^3}{2EI}\\
+   &= \frac{\rho u^2l^3C_D}{2EI}\\
 C_D &= 1.95\\
 C_L &= 0.178\\
 \phi &= \sin^{-1}\left(\frac{C_D}{\sqrt{C_D^2 + C_L^2}}\right)
 \end{align*}
 And the boundary conditions being,
-\begin{align*}
-\theta^*(0)&=0\\ 
-\frac{d\theta^*}{ds^*}\Big|_{s^*=1} &= 0\\
-\frac{d^2\theta^*}{ds^{*2}}\Big|_{s^*=1} &= 0\\
-\end{align*}
+\begin{align}
+\theta^*(0)&=0\\ \label{bc1}
+\frac{\mathrm{d}\theta^*}{\mathrm{d}s^*}\Big|_{s^*=1} &= 0\\\label{bc2}
+\frac{\mathrm{d}^2\theta^*}{\mathrm{d}s^{*2}}\Big|_{s^*=1} &= 0\\\label{bc3}
+\end{align}
+\pagebreak
+\begin{center}
+		\Large
+		\textsc{Numerical Methods Used}\\\normalsize
+\end{center}
+\vspace{-3ex}
+\underline{\hspace{6.27in}}
+\hfill\\
+\hfill\\
+Since the analytical solution to the equation \eqref{deqn} is very difficult, hence we are trying to find the solution numerically. We need the value of $\theta$ at various $s^*$, so to do that we divide the $s^*$ space into $n+1$ nodes and the distance between between two adjacent nodes being $h = 1/n$.
+\hfill\\
+Starting to solve the eqaution by applying \textit{Backward Euler} difference equation to \eqref{bc2}:
+\begin{align}
+&\frac{\mathrm{d}\theta^*}{\mathrm{d}s^*}\approx \frac{\theta_n - \theta_{n-1}}{h}  = 0\\
+&\implies \theta_n - \theta_{n-1}
+\end{align}
+Applying the \textit{Backward Difference} equation to \eqref{bc3}:
+\begin{align}
+&\frac{\mathrm{d^2}\theta^*}{\mathrm{d}s^{*2}}\approx \frac{\theta_n +\theta_{n-1}- 2\theta_{n-1}}{h}  = 0\\
+&\implies \theta_{n-2} = 2\theta_{n-1}-\theta_{n}\\
+&\implies \theta_{n-2} = \theta_{n}
+\end{align}
+Till now 2 out of the three boundary conditions have been used, and we will use equation \eqref{bc1} in the end. Now, we will focus on our main differential equation \eqref{deqn}. Applying the \textit{Backward Difference} equation to \eqref{deqn} at $s^*_{n-1}$ we get:
+\begin{align}
+\frac{\theta_{n-1}+\theta_{n-3}-2\theta_{n-2}}{h^2} \approx\text{Ca}\frac{\sqrt{C_D^2+C_L^2}}{C_D}\left[\int_{1-h}^{1} \cos^2(\theta)\sin\left(\theta - \theta^*+\phi\right) ds\right]
+\end{align}
+The RHS of the above equation is computed using \textit{Trapezoidal Method}. Hence applying \textit{Trapezoidal Method} to the above equation:
+\begin{align}
+\begin{split}
+\frac{\theta_{n-1}+\theta_{n-3}-2\theta_{n-2}}{h^2} =\frac{h}{2}\text{Ca}\frac{\sqrt{C_D^2+C_L^2}}{C_D}\Biggl[&\cos^2(\theta_n)\sin\left(\theta_n - \theta_{n-1}+\phi\right) \\
+&\quad+\cos^2(\theta)\sin\left(\theta_{n-1} - \theta_{n-1}+\phi\right)\Biggl]\\
+\end{split}\\
+\begin{split}
+\theta_{n-3}=2\theta_{n-2}-\theta_{n-1}+ \frac{h^3}{2}\text{Ca}\frac{\sqrt{C_D^2+C_L^2}}{C_D}\Biggl[&\cos^2(\theta_n)\sin\left(\theta_n - \theta_{n-1}+\phi\right)\\
+&\quad+\cos^2(\theta)\sin\left(\theta_{n-1} - \theta_{n-1}+\phi\right)\Biggl]\\
+\end{split}
+\end{align}
+As we can see clearly the RHS is known\footnote{In terms of $\theta_n$} and we can easily calculate $\theta_{n-3}$ by just plugging in the values. Similarly applying the same method at any internal node $i$ we obtain:
+\begin{align}
+\frac{\theta_{i}+\theta_{i-2}-2\theta_{i-1}}{h^2} \approx\text{Ca}\frac{\sqrt{C_D^2+C_L^2}}{C_D}\left[\int_{s_i^{*}}^{1} \cos^2(\theta)\sin\left(\theta - \theta^*+\phi\right) ds\right]
+\end{align}\\
+\pagebreak
+And again applying \textit{Trapezoidal Formula} to the above equation we get:
 
+\begin{align}
+\begin{split}
+\frac{\theta_{i}+\theta_{i-2}-2\theta_{i-1}}{h^2} =\frac{h}{2}\text{Ca}\frac{\sqrt{C_D^2+C_L^2}}{C_D}\Bigr[&\cos^2(\theta_n)\sin\left(\theta_n - \theta_{i}+\phi\right) \\
+&\quad+2\cos^2(\theta_{n-1})\sin\left(\theta_{n-1} - \theta_{i}+\phi\right)\\
+&\quad+2\cos^2(\theta_{n-2})\sin\left(\theta_{n-2} - \theta_{i}+\phi\right)\\
+&\quad \phantom{{} = Giridhar}\vdots\\
+&\quad+2\cos^2(\theta_{i+1})\sin\left(\theta_{i+1} - \theta_{i}+\phi\right)\\
+&\quad+\cos^2(\theta_i)\sin\left(\theta_{i} - \theta_{i}+\phi\right)\Bigr]\\
+\end{split}
+\end{align}
+Hence the above equation can be simply represented as:
+\begin{align}
+\begin{split}
+\theta_{i} =2\theta_{i-1}-\theta_{i-2}+\frac{h^3}{2}\text{Ca}\frac{\sqrt{C_D^2+C_L^2}}{C_D}\Bigr[&\cos^2(\theta_n)\sin\left(\theta_n - \theta_{i}+\phi\right) \\
+&\quad+2\sum_{j=i+1}^{n-1}\cos^2(\theta_{j})\sin\left(\theta_{j} - \theta_{i}+\phi\right)\\
+&\quad+\cos^2(\theta_i)\sin\left(\theta_{i} - \theta_{i}+\phi\right)\Bigr]\\
+\end{split}
+\end{align}
+And, again we get an expression for $\theta_i$ in terms of $\theta_n$. Following this procedure till $i=2$ we get an expression for $\theta_0$  in terms of $\theta_n$. And from equation \eqref{bc1}, we equate $\theta_0 = 0$, by using numerical algorithms to find the roots of non-linear equations\footnote{In this case Newton-Raphson method was used}. Hence getting a value for $\theta_n$, and once we get the value of $\theta_n$ we could easily calculate each $\theta_i$ from $i=0$ to $n-1$ from the above equations.\\
+\hfill\\
+Now having calculated the $\theta$ array we can extract all data from it. For example the equivalent length can be given by the expression:
+\begin{align}
+\frac{L_e}{L} = \int_0^1cos^3(\theta)d\hat{s}
+\end{align}
 \end{document}
